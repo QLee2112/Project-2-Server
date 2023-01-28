@@ -1,5 +1,5 @@
 const express = require('express')
-const Datacard = require('../models/datacard-model')
+const Datacard = require('../models/datacard-model.js')
 const router = express.Router()
 
 //CREATE A NEW CARD
