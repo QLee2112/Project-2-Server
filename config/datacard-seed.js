@@ -1,32 +1,84 @@
-const mongoose= require('mongoose')
+const express = require('express')
+const Datacard = require('../models/datacard-model')
+const router = express.Router()
 
-const Schema = mongoose.Schema
-
-const wargearSchema = new Schema(
+const startingDataCards = [
     {
-        name: {
-            type: String,
-            required: true
-        },
-        range: {
-            type: String
-        },
-        type: {
-            type: String,
-            enum: ['Rapid Fire', 'Assault', 'Heavy', 'Pistol', 'Grenade']
-        },
-        strength: {
-            type: Number
-        },
-        ap: {
-            type: Number
-        },
-        damage: {
-            type: Number
-        }
+        name: 'Intercessor',
+        movement: '6',
+        weaponSkill: '3',
+        ballisticSkill: '3',
+        strength: '4',
+        toughness: '4',
+        wounds: '2',
+        attacks: '2',
+        leadership: '7',
+        saves: '3',
+        id: '00001'
+    },
+    {
+        name: 'Eradicator',
+        movement: '5',
+        weaponSkill: '3',
+        ballisticSkill: '3',
+        strength: '4',
+        toughness: '5',
+        wounds: '3',
+        attacks: '2',
+        leadership: '7',
+        saves: '3',
+        id: '00002'
+    },
+    {
+        name: 'Aggressor',
+        movement: '5',
+        weaponSkill: '3',
+        ballisticSkill: '3',
+        strength: '4',
+        toughness: '5',
+        wounds: '3',
+        attacks: '3',
+        leadership: '7',
+        saves: '3',
+        id: '00003'
+    },
+    {
+        name: 'Intercessor',
+        movement: '6',
+        weaponSkill: '3',
+        ballisticSkill: '3',
+        strength: '4',
+        toughness: '4',
+        wounds: '2',
+        attacks: '2',
+        leadership: '7',
+        saves: '3',
+        id: '00004'
+    },
+    {
+        name: 'Marine',
+        movement: '6',
+        weaponSkill: '3',
+        ballisticSkill: '3',
+        strength: '4',
+        toughness: '4',
+        wounds: '2',
+        attacks: '1',
+        leadership: '7',
+        saves: '3',
+        id: '00005'
     }
-)
+]
 
-const Wargear = mongoose.model('Wargear', wargearSchema)
+router.get('/datacards', (req, res, next) => {
+    Datacard.deleteMany({})
+        .then(() => {
+            Datacard.create(startingDataCards)
+                .then(datacards => {
+                    res.status(200).json({ datacards: datacards })
+                })
+        })
+        .catch(next)
+})
 
-module.exports = Wargear
+module.exports = router

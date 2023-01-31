@@ -6,15 +6,14 @@ const datacardSchema = new Schema(
     {
         name: {
             type: String,
-            required: true
         },
         movement: {
             type: Number,
         },
-        weapon skill: {
+        weaponSkill: {
             type: Number
         },
-        ballistic skill: {
+        ballisticSkill: {
             type: Number
         },
         strength: {
@@ -32,12 +31,11 @@ const datacardSchema = new Schema(
         leadership: {
             type: Number
         },
-        save: {
+        saves: {
             type: Number
         },
         id: {
             type: String,
-            required: true
         }
     }
 )
