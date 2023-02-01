@@ -12,8 +12,6 @@ Screenshots:
 
 ![ERD](/Imgs/Project-2-ERD.png)
 
-Note: Keep CRUD in mind
-
 User Stories:
 2. As a user, I want to be able to click a data card and see its stats.
 3. As a user, I want to be able to add a data card to my current army comp.

@@ -4,17 +4,24 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema(
     {
-        username: {
+        email: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         password: {
             type: String,
             required: true
         },
-        id: {
-            type: Number,
-            required: true
+        token: String
+    },
+    {
+        timestamps: true,
+        toJSON: {
+            transform: (_doc, user) => {
+                delete user.password
+                return user
+            }
         }
     }
 )

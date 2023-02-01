@@ -33,9 +33,6 @@ const datacardSchema = new Schema(
         },
         saves: {
             type: Number
-        },
-        id: {
-            type: String,
         }
     }
 )
