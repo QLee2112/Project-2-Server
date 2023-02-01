@@ -1,6 +1,6 @@
-Title: Lorehammer 39,999
+Title: Lorehammer 40K
 
-Getting Started: BLAH BLAH BLAH
+Getting Started: This applications allows users to create their own datacards
 
 Screenshots:
 
@@ -11,6 +11,10 @@ Screenshots:
 ![Single Card](/Imgs/Project-2-Single-Card.png)
 
 ![ERD](/Imgs/Project-2-ERD.png)
+
+![Home Page](/Imgs/Home-Page.png)
+
+![Datacard](/Imgs/Datacard.png)
 
 User Stories:
 2. As a user, I want to be able to click a data card and see its stats.
@@ -45,11 +49,12 @@ V2:
 3. As a user, I want to be able to change the color scheme of the model displayed.
 
 Technology Used:
-Javascript
-CSS
-HTML
-Express
-Mongoose
-Cors
-Nodemon
-MongoDB
+bcrypt
+cors
+express
+jsonwebtoken
+mongodb
+mongoose
+nodemon
+passport
+passport-jwt

@@ -1,15 +1,13 @@
 const mongoose= require('mongoose')
 
-const Schema = mongoose.Schema
-
-const wargearSchema = new Schema(
+const wargearSchema = new mongoose.Schema(
     {
         name: {
             type: String,
             required: true
         },
         range: {
-            type: String
+            type: Number
         },
         type: {
             type: String,
@@ -27,6 +25,6 @@ const wargearSchema = new Schema(
     }
 )
 
-const Wargear = mongoose.model('Wargear', wargearSchema)
 
-module.exports = Wargear
+
+module.exports = wargearSchema

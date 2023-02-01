@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
+const wargearSchema = require('./wargear-model')
 
-const Schema = mongoose.Schema
 
-const datacardSchema = new Schema(
+const datacardSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -33,10 +33,10 @@ const datacardSchema = new Schema(
         },
         saves: {
             type: Number
-        }
+        },
+        wargear: [wargearSchema],
+
     }
 )
 
-const Datacard = mongoose.model('Datacard', datacardSchema)
-
-module.exports = Datacard
+module.exports = mongoose.model('Datacard', datacardSchema)
