@@ -1,7 +1,6 @@
 const express = require('express')
 const Wargear = require('../models/wargear-model')
 const router = express.Router()
-const { handle404 } = require('../lib/custom-errors')
 
 //READ
 router.get('/wargears', (req, res, next) => {

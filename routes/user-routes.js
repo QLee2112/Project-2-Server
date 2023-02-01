@@ -1,7 +1,6 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
 const User = require('../models/user-model')
-const { create } = require('../models/datacard-model')
 const { createUserToken } = require('../config/auth')
 
 const router = express.Router()

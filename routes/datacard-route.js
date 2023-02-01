@@ -6,7 +6,7 @@ const { handle404 } = require('../lib/custom-errors')
 //CREATE A NEW CARD
 router.post('/datacards', (req, res, next) => {
     Datacard.create(req.body.datacard)
-        .then(datacard => {
+        .then((datacard) => {
             res.status(201).json({ datacard: datacard })
         })
         .catch(next)
