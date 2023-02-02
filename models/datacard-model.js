@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const noteSchema = require('./note')
 const wargearSchema = require('./wargear-model')
 
 
@@ -34,6 +35,7 @@ const datacardSchema = new mongoose.Schema(
         saves: {
             type: Number
         },
+        notes:[noteSchema],
         wargear: [wargearSchema],
 
     }

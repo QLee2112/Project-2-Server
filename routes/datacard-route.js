@@ -2,9 +2,9 @@ const express = require('express')
 const Datacard = require('../models/datacard-model.js')
 const router = express.Router()
 const { handle404 } = require('../lib/custom-errors')
-
+const { requireToken } = require('../config/auth')
 //CREATE A NEW CARD
-router.post('/datacards', (req, res, next) => {
+router.post('/datacards', requireToken, (req, res, next) => {
     Datacard.create(req.body.datacard)
         .then((datacard) => {
             res.status(201).json({ datacard: datacard })
@@ -13,7 +13,7 @@ router.post('/datacards', (req, res, next) => {
 })
 
 //READ ALL CARDS
-router.get('/datacards', (req, res, next) => {
+router.get('/datacards', requireToken, (req, res, next) => {
     Datacard.find()
         .then(datacard => {
             return datacard.map(datacard => datacard)
@@ -25,7 +25,7 @@ router.get('/datacards', (req, res, next) => {
 })
 
 //SHOW ONE CARD
-router.get('/datacards/:id', (req, res, next) => {
+router.get('/datacards/:id', requireToken, (req, res, next) => {
     Datacard.findById(req.params.id)
     .then(handle404)
         .then(datacard => {
@@ -35,7 +35,7 @@ router.get('/datacards/:id', (req, res, next) => {
 })
 
 //UPDATE
-router.patch('/datacards/:id', (req, res, next) => {
+router.patch('/datacards/:id', requireToken, (req, res, next) => {
     Datacard.findById(req.params.id)
     .then(handle404)
     .then(datacard => {
@@ -46,7 +46,7 @@ router.patch('/datacards/:id', (req, res, next) => {
 })
 
 //DELETE
-router.delete('/datacards/:id', (req, res, next) => {
+router.delete('/datacards/:id', requireToken, (req, res, next) => {
     Datacard.findById(req.params.id)
     .then(handle404)
         .then(datacard => {

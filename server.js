@@ -6,6 +6,8 @@ const PORT = 3000
 const datacardRoutes = require('./routes/datacard-route')
 const wargearRoutes = require('./routes/wargear-route')
 const userRoutes = require('./routes/user-routes')
+const noteRoutes = require('./routes/notes-routes')
+
 mongoose.set('strictQuery', true)
 
 mongoose.connect(db, {
@@ -22,6 +24,7 @@ app.use(express.json())
 app.use(datacardRoutes)
 app.use(wargearRoutes)
 app.use(userRoutes)
+app.use(noteRoutes)
 
 app.listen(PORT, () => {
     console.log('Listening on Port ' + PORT)
